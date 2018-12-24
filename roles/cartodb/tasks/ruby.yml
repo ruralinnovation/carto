@@ -1,0 +1,19 @@
+- name: Ruby | apt repo
+  apt_repository:
+    repo: ppa:brightbox/ruby-ng
+    state: present
+  become: true
+
+- name: Ruby | Install packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - ruby2.2 
+    - ruby2.2-dev
+    - ruby-bundler
+  become: true
+
+- name: Ruby | install compass
+  command: sudo gem install compass

@@ -1,0 +1,16 @@
+- name: Maps API | Clone Windshaft-cartodb
+  git:
+    repo: 'git://github.com/CartoDB/Windshaft-cartodb.git'
+    dest: ~/Windshaft-cartodb
+  ignore_errors: yes
+
+- name: Maps API | commands
+  command: "{{ item }}"
+  args:
+    chdir: ~/Windshaft-cartodb
+  with_items:
+    - sudo npm install -g yarn@0.27.5
+    - yarn install
+    - mkdir logs
+    - cp config/environments/development.js.example config/environments/development.js
+  ignore_errors: yes

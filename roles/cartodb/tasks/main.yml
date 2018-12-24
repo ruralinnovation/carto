@@ -1,0 +1,10 @@
+- include: postgres.yml
+- include: gdal.yml
+- include: postgis.yml
+- include: redis.yml
+- include: node.yml
+- include: sqlapi.yml
+- include: mapsapi.yml
+- include: ruby.yml
+- include: carto-builder.yml
+- include: configuration.yml

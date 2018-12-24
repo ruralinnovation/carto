@@ -1,0 +1,34 @@
+- name: CARTO Builder | Install packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - python-pip
+    - imagemagick 
+    - unp 
+    - zip 
+    - libicu-dev
+  become: true
+
+- name: CARTO Builder | Clone cartodb
+  git:
+    repo: 'https://github.com/CartoDB/cartodb.git'
+    dest: ~/cartodb
+    recursive: yes 
+
+- name: CARTO Builder | commands
+  shell: "{{ item }}"
+  args:
+    chdir: ~/cartodb
+  with_items:
+    - bundle install
+    - sudo CPLUS_INCLUDE_PATH=/usr/include/gdal C_INCLUDE_PATH=/usr/include/gdal PATH=$PATH:/usr/include/gdal pip install --no-use-wheel -r python_requirements.txt
+    - npm install
+    - npm run carto-node
+    - npm run build:static
+    - PATH=$PATH:$PWD/node_modules/grunt-cli/bin bundle exec grunt --environment=development
+    - cp config/app_config.yml.sample config/app_config.yml
+    - cp config/database.yml.sample config/database.yml
+    - RAILS_ENV=development bundle exec rake db:create
+    - RAILS_ENV=development bundle exec rake db:migrate

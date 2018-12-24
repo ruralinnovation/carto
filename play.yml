@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - { role: cartodb, public_host: '52.202.209.38', private_host: '172.31.92.242' }

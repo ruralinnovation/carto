@@ -1,0 +1,14 @@
+- name: SQL API | Clone CartoDB-SQL-API
+  git:
+    repo: 'git://github.com/CartoDB/CartoDB-SQL-API.git'
+    dest: ~/CartoDB-SQL-API
+
+- name: SQL API | npm install
+  command: npm install
+  args:
+    chdir: ~/CartoDB-SQL-API
+
+- name: SQL API | copy env configs
+  command: cp config/environments/development.js.example config/environments/development.js
+  args:
+    chdir: ~/CartoDB-SQL-API
