@@ -24,7 +24,7 @@
 
 Manual steps:
 
-1. Place ssl certificate and key in `/home/ubuntu/ssl`
+1. Place real ssl certificate.pem and key.pem in `/home/ubuntu/ssl`
 
 2. Restart nginx: `sudo service nginx restart`
 

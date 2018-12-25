@@ -1,4 +1,4 @@
 ---
 - hosts: all
   roles:
-    - { role: cartodb-prod, public_host: 'mostafa.net', private_host: '172.31.17.219' }
+    - { role: cartodb-prod, public_host: '54.242.12.58', private_host: '172.31.29.0' }

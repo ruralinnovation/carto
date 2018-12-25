@@ -3,10 +3,12 @@
     path: ~/ssl
     state: directory
 
-- name: SSL | touch files
-  shell: "{{ item }}"
-  args:
-    chdir: ~/ssl
-  with_items:
-    - touch certificate.pem
-    - touch key.pem
+- name: SSL | place certificate
+  copy:
+    src: certificate.pem
+    dest: ~/ssl
+
+- name: SSL | place key
+  copy:
+    src: key.pem
+    dest: ~/ssl
