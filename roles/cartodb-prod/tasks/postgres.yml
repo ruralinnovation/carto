@@ -1,0 +1,54 @@
+- name: Postgres | apt repo
+  apt_repository:
+    repo: ppa:cartodb/postgresql-10
+    state: present
+  become: true
+
+- name: Postgres | Install packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - make
+    - pkg-config
+    - git
+    - postgresql-10 
+    - postgresql-plpython-10 
+    - postgresql-server-dev-10
+  become: true
+
+- name: Postgres | template pg_hba.conf
+  template:
+    src: postgres.conf.j2
+    dest: /etc/postgresql/10/main/pg_hba.conf
+    owner: postgres
+    group: postgres
+    mode: 0640
+  become: true
+
+- name: Postgres | restart service
+  service:
+    name: postgresql
+    state: restarted
+  become: true
+
+- name: Postgres | commands
+  command: "{{ item }}"
+  with_items:
+    - sudo createuser publicuser --no-createrole --no-createdb --no-superuser -U postgres
+    - sudo createuser tileuser --no-createrole --no-createdb --no-superuser -U postgres
+  ignore_errors: yes
+
+- name: Postgres |clone repo
+  git:
+    repo: 'https://github.com/CartoDB/cartodb-postgresql.git'
+    dest: ~/cartodb-postgresql
+
+- name: Postgres | build commands
+  command: "{{ item }}"
+  args:
+    chdir: ~/cartodb-postgresql
+  with_items:
+    - make all
+    - sudo make install

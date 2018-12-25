@@ -1,0 +1,12 @@
+- name: SSL | create folder
+  file:
+    path: ~/ssl
+    state: directory
+
+- name: SSL | touch files
+  shell: "{{ item }}"
+  args:
+    chdir: ~/ssl
+  with_items:
+    - touch certificate.pem
+    - touch key.pem

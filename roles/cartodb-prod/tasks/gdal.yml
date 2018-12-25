@@ -1,0 +1,15 @@
+- name: GDAL | add apt repo
+  apt_repository:
+    repo: ppa:cartodb/gis
+    state: present
+  become: true
+
+- name: GDAL | Install packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - gdal-bin 
+    - libgdal-dev
+  become: true

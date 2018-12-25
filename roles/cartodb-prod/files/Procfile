@@ -1,0 +1,3 @@
+worker: cd /home/ubuntu/cartodb && RAILS_ENV=production bundle exec script/resque
+sqlapi: cd CartoDB-SQL-API && node app.js production
+windshaft: cd Windshaft-cartodb && node app.js production

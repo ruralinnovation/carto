@@ -1,0 +1,20 @@
+- name: Redis | add apt repo
+  apt_repository:
+    repo: ppa:cartodb/redis-next
+    state: present
+  become: true
+
+- name: Redis | Install packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - redis
+  become: true
+
+- name: CARTO Builder | service redis
+  service:
+    name: redis-server
+    state: started
+  become: true

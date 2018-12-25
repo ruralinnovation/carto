@@ -1,0 +1,20 @@
+- name: Node | add apt repo
+  apt_repository:
+    repo: ppa:cartodb/nodejs
+    state: present
+  become: true
+
+- name: Node | Install packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - nodejs
+    - libpixman-1-0 
+    - libpixman-1-dev
+    - libcairo2-dev 
+    - libjpeg-dev 
+    - libgif-dev 
+    - libpango1.0-dev
+  become: true

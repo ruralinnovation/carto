@@ -1,2 +1,2 @@
 [defaults]
-52.202.209.38 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3 ansible_ssh_private_key_file=~/.ssh/id_rsa 
+34.229.217.232 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3 ansible_ssh_private_key_file=~/.ssh/id_rsa 

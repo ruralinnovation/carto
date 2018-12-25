@@ -1,0 +1,35 @@
+- name: Config | CartoDB-SQL-API template production.js
+  template:
+    src: templates/sql-api.js.j2
+    dest: ~/CartoDB-SQL-API/config/environments/production.js
+
+- name: Config | Windshaft template production.js
+  template:
+    src: templates/windshaft.js.j2
+    dest: ~/Windshaft-cartodb/config/environments/production.js
+
+- name: Config| template app_config
+  template:
+    src: templates/app_config.yml.j2
+    dest: ~/cartodb/config/app_config.yml
+
+- name: Config | place start script
+  copy:
+    src: files/carto-start.sh
+    dest: ~/
+    mode: 0775
+
+- name: Config | place stop script
+  copy:
+    src: files/carto-stop.sh
+    dest: ~/
+    mode: 0775
+
+- name: Config | place Procfile
+  copy:
+    src: Procfile
+    dest: ~/
+
+
+### Generate user
+  

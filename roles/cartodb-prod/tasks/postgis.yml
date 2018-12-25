@@ -1,0 +1,25 @@
+- name: PostGIS | clone repo
+  apt_repository:
+    repo: ppa:cartodb/gis
+    state: present
+  become: true
+
+- name: PostGIS | Install PostGIS packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - postgis
+  become: true
+
+- name: PostGIS | commands
+  command: "{{ item }}"
+  args:
+    chdir: ~/cartodb-postgresql
+  with_items:
+    - sudo createdb -T template0 -O postgres -U postgres -E UTF8 template_postgis
+    - psql -U postgres template_postgis -c 'CREATE EXTENSION postgis;CREATE EXTENSION postgis_topology;'
+    - sudo ldconfig
+    - sudo PGUSER=postgres make installcheck
+  ignore_errors: yes
