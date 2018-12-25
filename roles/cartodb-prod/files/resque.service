@@ -1,0 +1,17 @@
+[Unit]
+Description=CartoDB Resque
+After=network.target
+
+[Service]
+Type=simple
+
+Environment=RAILS_ENV=production
+
+User=ubuntu
+WorkingDirectory=/home/ubuntu/cartodb
+ExecStart=/usr/bin/bundle exec script/resque
+Restart=on-failure
+
+
+[Install]
+WantedBy=multi-user.target

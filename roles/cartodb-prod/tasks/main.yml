@@ -10,3 +10,4 @@
 - include: configuration.yml
 - include: ssl.yml
 - include: nginx.yml
+- include: systemd.yml

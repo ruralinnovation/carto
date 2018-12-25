@@ -1,0 +1,38 @@
+- name: systemd | install resque service
+  copy: 
+    src: resque.service 
+    dest: /etc/systemd/system/resque.service
+  become: true
+
+- name: systemd | start resque
+  systemd: 
+    state: started 
+    name: resque 
+    daemon_reload: yes
+  become: true
+
+- name: systemd | install windshaft service
+  copy: 
+    src: carto-windshaft.service 
+    dest: /etc/systemd/system/carto-windshaft.service
+  become: true
+
+- name: systemd | start windshaft
+  systemd: 
+    state: started 
+    name: carto-windshaft 
+    daemon_reload: yes
+  become: true
+
+- name: systemd | install sql api service
+  copy: 
+    src: carto-sqlapi.service 
+    dest: /etc/systemd/system/carto-sqlapi.service
+  become: true
+
+- name: systemd | start sql api
+  systemd: 
+    state: started 
+    name: carto-sqlapi 
+    daemon_reload: yes
+  become: true

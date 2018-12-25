@@ -32,6 +32,21 @@ Manual steps:
 	- `cd cartodb`
 	- `RAILS_ENV=production script/create_dev_user`
 
-4. Start resque/windshaft/sqlapi
-	- `cd ~`
-	- `foreman start`
+### Resque/Windshaft/SQL API
+
+These services are managed by systemd:
+
+- Resque: 
+	- `sudo systemctl status resque`
+	- `sudo systemctl start resque`
+	- `sudo systemctl stop resque`
+
+- Windshaft: 
+	- `sudo systemctl status carto-windshaft`
+	- `sudo systemctl start carto-windshaft`
+	- `sudo systemctl stop carto-windshaft`
+
+- SQL API: 
+	- `sudo systemctl status carto-sqlapi`
+	- `sudo systemctl start carto-sqlapi`
+	- `sudo systemctl stop carto-sqlapi`

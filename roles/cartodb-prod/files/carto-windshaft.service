@@ -1,0 +1,15 @@
+[Unit]
+Description=CartoDB Windshaft
+After=network.target
+
+[Service]
+Type=simple
+
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Windshaft-cartodb
+ExecStart=/usr/bin/node app.js production
+Restart=on-failure
+
+
+[Install]
+WantedBy=multi-user.target
