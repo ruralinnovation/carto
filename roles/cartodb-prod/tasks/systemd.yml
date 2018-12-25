@@ -9,6 +9,7 @@
     state: started 
     name: resque 
     daemon_reload: yes
+    enabled: true
   become: true
 
 - name: systemd | install windshaft service
@@ -22,6 +23,7 @@
     state: started 
     name: carto-windshaft 
     daemon_reload: yes
+    enabled: true
   become: true
 
 - name: systemd | install sql api service
@@ -35,4 +37,5 @@
     state: started 
     name: carto-sqlapi 
     daemon_reload: yes
+    enabled: true
   become: true

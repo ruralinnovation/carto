@@ -13,8 +13,14 @@
     - redis
   become: true
 
-- name: CARTO Builder | service redis
-  service:
-    name: redis-server
-    state: started
+- name: Redis | service redis
+  systemd: 
+    state: started 
+    name: redis-server 
+    daemon_reload: yes
+    enabled: true
+  become: true
+
+- name: Redis | service enable
+  shell: systemctl enable redis-server
   become: true
