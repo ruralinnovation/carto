@@ -2,7 +2,7 @@
 
 - create an ubuntu 16.04 ec2
 -	edit `hosts` and change the IP to the public ip of the ec2
-- edit `play.yml` and enter the public ip (or domain) and private host IP 
+- edit `play.yml` and enter the public ip (or domain) 
 - run `ansible-playbook -i hosts play.yml`
 
 
