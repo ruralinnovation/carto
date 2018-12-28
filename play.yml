@@ -1,4 +1,9 @@
 ---
 - hosts: all
+  vars:
+    - cartodb_version: v4.23.4
+    - sqlapi_version: 2.3.1
+    - windshaft_version: 6.5.1
+
   roles:
-    - { role: cartodb-prod, public_host: '54.242.12.58', private_host: '172.31.29.0' }
+    - { role: cartodb-prod, public_host: '<domain>'}

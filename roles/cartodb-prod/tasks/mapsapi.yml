@@ -2,7 +2,8 @@
   git:
     repo: 'git://github.com/CartoDB/Windshaft-cartodb.git'
     dest: ~/Windshaft-cartodb
-  ignore_errors: yes
+    version: "{{ windshaft_version }}"
+  # ignore_errors: yes
 
 - name: Maps API | commands
   command: "{{ item }}"

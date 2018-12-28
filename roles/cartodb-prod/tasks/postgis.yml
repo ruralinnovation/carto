@@ -1,4 +1,4 @@
-- name: PostGIS | clone repo
+- name: PostGIS | apt repo
   apt_repository:
     repo: ppa:cartodb/gis
     state: present

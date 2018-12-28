@@ -2,6 +2,7 @@
   git:
     repo: 'git://github.com/CartoDB/CartoDB-SQL-API.git'
     dest: ~/CartoDB-SQL-API
+    version: "{{ sqlapi_version }}"
 
 - name: SQL API | npm install
   command: npm install

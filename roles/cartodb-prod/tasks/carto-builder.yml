@@ -16,6 +16,7 @@
     repo: 'https://github.com/CartoDB/cartodb.git'
     dest: ~/cartodb
     recursive: yes 
+    version: "{{ cartodb_version }}"
 
 - name: CARTO Builder | commands
   shell: "{{ item }}"
