@@ -7,4 +7,4 @@
     - postgres_version: 0.24.0
 
   roles:
-    - { role: cartodb-prod, public_host: '<domain>'}
+    - { role: cartodb-prod, public_host: '100.24.183.50'}
