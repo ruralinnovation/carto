@@ -25,6 +25,22 @@
 Manual steps:
 
 1. Place real ssl certificate.pem and key.pem in `/home/ubuntu/ssl`
+```
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-nginx 
+
+sudo certbot --nginx certonly
+```
+See https://certbot.eff.org/lets-encrypt/ubuntuxenial-nginx
+
+```
+sudo cp /etc/letsencrypt/live/fmcarto.ruralinnovation.us/fullchain.pem /home/ubuntu/ssl/certificate.pem
+sudo /etc/letsencrypt/live/fmcarto.ruralinnovation.us/privkey.pem /home/ubuntu/ssl/key.pem
+```
 
 2. Restart nginx: `sudo service nginx restart`
 
