@@ -39,7 +39,7 @@ See https://certbot.eff.org/lets-encrypt/ubuntuxenial-nginx
 
 ```
 sudo cp /etc/letsencrypt/live/fmcarto.ruralinnovation.us/fullchain.pem /home/ubuntu/ssl/certificate.pem
-sudo /etc/letsencrypt/live/fmcarto.ruralinnovation.us/privkey.pem /home/ubuntu/ssl/key.pem
+sudo cp /etc/letsencrypt/live/fmcarto.ruralinnovation.us/privkey.pem /home/ubuntu/ssl/key.pem
 ```
 
 2. Restart nginx: `sudo service nginx restart`
