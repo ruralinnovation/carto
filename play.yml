@@ -7,4 +7,4 @@
     - postgres_version: 0.24.0
 
   roles:
-    - { role: cartodb-prod, public_host: 'carto.ruralinnovation.us'}
+    - { role: cartodb-prod, public_host: 'fmcarto.ruralinnovation.us'}
