@@ -1,2 +1,2 @@
 [defaults]
-35.243.162.112 ansible_user=chris_rowe ansible_python_interpreter=/usr/bin/python3 ansible_ssh_private_key_file=~/.ssh/ansible.pem
+34.236.44.132 ansible_user=ubuntu ansible_python_interpreter=/usr/bin/python3 ansible_ssh_private_key_file=~/.ssh/ansible.pem
