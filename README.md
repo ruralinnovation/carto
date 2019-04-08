@@ -66,3 +66,13 @@ These services are managed by systemd:
 	- `sudo systemctl status carto-sqlapi`
 	- `sudo systemctl start carto-sqlapi`
 	- `sudo systemctl stop carto-sqlapi`
+	
+- nginx:
+	- `sudo systemctl status nginx`
+	- `sudo systemctl start nginx`
+	- `sudo systemctl stop nginx`
+	
+- postgresql:
+	- `sudo systemctl status postgresql`
+	- `sudo systemctl start postgresql`
+	- `sudo systemctl stop postgresql`
